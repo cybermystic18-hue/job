@@ -3,8 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Careers - TechCorp Solutions</title>
+    <title>Careers - TechCorp Solutions | Cybersecurity Innovation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --primary: #0066cc;
+            --primary-dark: #004499;
+            --secondary: #00cc88;
+            --dark: #1a1a2e;
+            --darker: #0d0d1a;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --success: #28a745;
+            --warning: #ffc107;
+            --danger: #dc3545;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -12,125 +26,261 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--light);
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
             min-height: 100vh;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 20px;
         }
 
+        /* Header Styles */
         .header {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            text-align: center;
+            background: rgba(13, 13, 26, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 102, 204, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
         }
 
         .logo {
-            font-size: 2.5em;
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .tagline {
-            color: #7f8c8d;
-            font-size: 1.2em;
-            margin-bottom: 20px;
+        .logo-icon {
+            color: var(--secondary);
+            font-size: 1.8em;
+        }
+
+        .logo-text {
+            font-size: 1.5em;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .nav {
-            background: #34495e;
-            border-radius: 10px;
-            padding: 15px;
-            margin-bottom: 30px;
+            display: flex;
+            gap: 30px;
         }
 
         .nav a {
-            color: white;
+            color: var(--light);
             text-decoration: none;
-            margin: 0 20px;
             font-weight: 500;
-            transition: color 0.3s;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            position: relative;
         }
 
         .nav a:hover {
-            color: #3498db;
+            color: var(--secondary);
+            background: rgba(0, 204, 136, 0.1);
         }
 
+        .nav a.active {
+            color: var(--secondary);
+            background: rgba(0, 204, 136, 0.15);
+        }
+
+        .nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -17px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--secondary);
+            border-radius: 3px 3px 0 0;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-outline {
+            color: var(--light);
+            border: 1px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 102, 204, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 60px;
+            text-align: center;
+            background: radial-gradient(circle at top right, rgba(0, 102, 204, 0.2), transparent 60%);
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, var(--light), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #b3b3cc;
+        }
+
+        .hero-badges {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Main Content */
         .main-content {
             display: grid;
             grid-template-columns: 2fr 1fr;
             gap: 30px;
-            margin-bottom: 30px;
+            margin: 40px 0 60px;
         }
 
         .job-posting {
-            background: white;
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 15px;
             padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
         }
 
-        .sidebar {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        h1 {
-            color: #2c3e50;
-            margin-bottom: 20px;
+        .job-title h1 {
+            color: var(--light);
+            margin-bottom: 10px;
             font-size: 2.2em;
         }
 
-        h2 {
-            color: #34495e;
-            margin: 25px 0 15px 0;
-            border-bottom: 2px solid #3498db;
+        .job-meta {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .meta-tag {
+            background: rgba(0, 204, 136, 0.2);
+            color: var(--secondary);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .job-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .job-body h2 {
+            color: var(--light);
+            margin: 30px 0 15px;
             padding-bottom: 8px;
+            border-bottom: 2px solid var(--primary);
+            font-size: 1.5em;
         }
 
-        h3 {
-            color: #2c3e50;
-            margin: 20px 0 10px 0;
-        }
-
-        p {
+        .job-body p {
+            color: #b3b3cc;
             margin-bottom: 15px;
-            color: #555;
         }
 
-        ul {
+        .job-body ul {
             margin: 15px 0;
             padding-left: 25px;
         }
 
-        li {
-            margin-bottom: 8px;
-            color: #555;
+        .job-body li {
+            margin-bottom: 10px;
+            color: #b3b3cc;
+            position: relative;
+        }
+
+        .job-body li::marker {
+            color: var(--secondary);
         }
 
         .attachments {
-            background: #f8f9fa;
-            border: 2px dashed #dee2e6;
+            background: rgba(0, 102, 204, 0.1);
+            border: 2px dashed rgba(0, 102, 204, 0.5);
             border-radius: 10px;
             padding: 25px;
-            margin: 25px 0;
+            margin: 30px 0;
         }
 
         .download-btn {
-            display: inline-block;
-            background: #3498db;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--primary);
             color: white;
             padding: 12px 25px;
             border-radius: 8px;
@@ -141,14 +291,14 @@
         }
 
         .download-btn:hover {
-            background: #2980b9;
+            background: var(--primary-dark);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 15px rgba(0, 102, 204, 0.4);
         }
 
         .file-info {
-            background: #e8f4fc;
-            border: 1px solid #b3d9f2;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 102, 204, 0.3);
             border-radius: 8px;
             padding: 15px;
             margin: 15px 0;
@@ -157,155 +307,475 @@
         }
 
         .apply-section {
-            background: #2ecc71;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
-            padding: 25px;
+            padding: 30px;
             border-radius: 10px;
             text-align: center;
-            margin-top: 25px;
+            margin-top: 30px;
         }
 
-        .footer {
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .sidebar-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .sidebar-card h3 {
+            color: var(--light);
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sidebar-card h3 i {
+            color: var(--secondary);
+        }
+
+        .company-info p {
+            color: #b3b3cc;
+            margin-bottom: 15px;
+        }
+
+        .benefits-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            color: #b3b3cc;
+        }
+
+        .benefits-list i {
+            color: var(--secondary);
+            width: 20px;
+        }
+
+        .job-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .job-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            text-decoration: none;
+            color: #b3b3cc;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .job-link:hover {
+            background: rgba(0, 102, 204, 0.1);
+            color: var(--light);
+            border-color: rgba(0, 102, 204, 0.3);
+        }
+
+        .job-link.active {
+            background: rgba(0, 204, 136, 0.1);
+            color: var(--secondary);
+            border-color: rgba(0, 204, 136, 0.3);
+        }
+
+        .job-link i {
+            width: 20px;
             text-align: center;
-            color: white;
-            padding: 20px;
+        }
+
+        .notice {
+            background: rgba(255, 193, 7, 0.1);
+            border: 1px solid rgba(255, 193, 7, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+        }
+
+        .notice h4 {
+            color: var(--warning);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .notice p {
+            color: #ffd;
             font-size: 0.9em;
         }
 
-        .company-info {
-            background: #ecf0f1;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
+        /* Footer */
+        .footer {
+            background: rgba(13, 13, 26, 0.95);
+            border-top: 1px solid rgba(0, 102, 204, 0.3);
+            padding: 40px 0 20px;
+            margin-top: 40px;
         }
 
-        @media (max-width: 768px) {
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-logo {
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .footer p {
+            color: #b3b3cc;
+            margin-bottom: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: #b3b3cc;
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary);
+        }
+
+        .footer h4 {
+            color: var(--light);
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            color: #b3b3cc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #8c8ca0;
+            font-size: 0.9em;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
             .main-content {
                 grid-template-columns: 1fr;
             }
             
-            .nav a {
-                display: block;
-                margin: 10px 0;
-                text-align: center;
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav {
+                gap: 10px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            
+            .job-header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-shield-alt logo-icon"></i>
+                    <div class="logo-text">TECHCORP</div>
+                </div>
+                <nav class="nav">
+                    <a href="#">Home</a>
+                    <a href="#">Solutions</a>
+                    <a href="#">Services</a>
+                    <a href="#" class="active">Careers</a>
+                    <a href="#">About</a>
+                    <a href="#">Contact</a>
+                </nav>
+                <div class="header-actions">
+                    <a href="#" class="btn btn-outline"><i class="fas fa-user"></i> Client Portal</a>
+                    <a href="#" class="btn btn-primary"><i class="fas fa-comment"></i> Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Build the Future of Cybersecurity</h1>
+            <p>Join our elite team of security professionals and help protect organizations from evolving cyber threats. Shape your career with cutting-edge technology and meaningful work.</p>
+            <div class="hero-badges">
+                <div class="badge"><i class="fas fa-award"></i> Great Place to Work 2023</div>
+                <div class="badge"><i class="fas fa-rocket"></i> Fastest Growing Security Firm</div>
+                <div class="badge"><i class="fas fa-globe"></i> Remote-First Company</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
     <div class="container">
-        <div class="header">
-            <div class="logo">TECHCORP SOLUTIONS</div>
-            <div class="tagline">Innovative Cybersecurity for the Modern Enterprise</div>
-        </div>
-
-        <div class="nav">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#careers" style="color: #3498db;">Careers</a>
-            <a href="#contact">Contact</a>
-        </div>
-
         <div class="main-content">
+            <!-- Job Posting -->
             <div class="job-posting">
-                <h1>Senior Security Analyst</h1>
-                <p><strong>Location:</strong> Remote • <strong>Type:</strong> Full-time • <strong>Experience:</strong> 3+ years</p>
-                
-                <h2>About the Role</h2>
-                <p>We are seeking an experienced Security Analyst to join our dynamic team. In this role, you'll be at the forefront of our security operations, working with cutting-edge technologies to protect our clients and infrastructure.</p>
-
-                <h2>Key Responsibilities</h2>
-                <ul>
-                    <li>Monitor and analyze security events from various sources</li>
-                    <li>Conduct vulnerability assessments and penetration testing</li>
-                    <li>Implement and maintain security controls and protocols</li>
-                    <li>Perform OSINT investigations for threat intelligence</li>
-                    <li>Develop and maintain security documentation</li>
-                    <li>Respond to and investigate security incidents</li>
-                </ul>
-
-                <h2>Required Qualifications</h2>
-                <ul>
-                    <li>Bachelor's degree in Computer Science or related field</li>
-                    <li>3+ years of experience in cybersecurity roles</li>
-                    <li>One or more certifications: CEH, Security+, CySA+, or equivalent</li>
-                    <li>Proficiency in Python, Bash, and security tools</li>
-                    <li>Strong understanding of cloud security (AWS/Azure/GCP)</li>
-                    <li>Experience with SIEM solutions and security monitoring</li>
-                </ul>
-
-                <h2>Preferred Skills</h2>
-                <ul>
-                    <li>Digital forensics and incident response experience</li>
-                    <li>Advanced OSINT and threat intelligence gathering</li>
-                    <li>Knowledge of security frameworks (NIST, ISO 27001)</li>
-                    <li>Experience with container security</li>
-                    <li>Scripting and automation skills</li>
-                </ul>
-
-                <div class="attachments">
-                    <h3>📎 Job Attachments</h3>
-                    <p>Download the complete job description for detailed information:</p>
-                    
-                    <a href="https://drive.google.com/drive/folders/1GJvK5tfNcOmKPZeITCi4Uu1dTXmMOMjf?usp=sharing" class="download-btn">
-                        📥 Download Full Job Description
-                    </a>
-                    
-                    <div class="file-info">
-                        <strong>File Details:</strong><br>
-                        • Filename: detailed_position_specs.pdf<br>
-                        • Format: PDF Document<br>
-                        • Size: 248 KB<br>
-                        • Last updated: 2024-01-15
+                <div class="job-header">
+                    <div class="job-title">
+                        <h1>Senior Security Analyst</h1>
+                        <div class="job-meta">
+                            <span class="meta-tag"><i class="fas fa-laptop-house"></i> Remote</span>
+                            <span class="meta-tag"><i class="fas fa-briefcase"></i> Full-time</span>
+                            <span class="meta-tag"><i class="fas fa-chart-line"></i> Senior Level</span>
+                            <span class="meta-tag"><i class="fas fa-clock"></i> Posted 2 days ago</span>
+                        </div>
                     </div>
-                    
-                    <p><small>Note: The file contains additional information about benefits, application process, and company policies.</small></p>
+                    <div class="job-actions">
+                        <a href="#" class="btn btn-outline"><i class="far fa-bookmark"></i> Save</a>
+                        <a href="#" class="btn btn-primary"><i class="fas fa-share-alt"></i> Share</a>
+                    </div>
                 </div>
 
-                <div class="apply-section">
-                    <h3>Ready to Apply?</h3>
-                    <p>Send your resume and cover letter to:</p>
-                    <p style="font-size: 1.2em; font-weight: bold;">careers@techcorp-solutions.io</p>
-                    <p>Please include "Senior Security Analyst Application" in the subject line.</p>
+                <div class="job-body">
+                    <h2><i class="fas fa-user-tie"></i> About the Role</h2>
+                    <p>We are seeking an experienced Security Analyst to join our dynamic Security Operations Center. In this role, you'll be at the forefront of our security operations, working with cutting-edge technologies to protect our clients and infrastructure from sophisticated cyber threats.</p>
+
+                    <h2><i class="fas fa-tasks"></i> Key Responsibilities</h2>
+                    <ul>
+                        <li>Monitor and analyze security events from various sources including SIEM, EDR, and network sensors</li>
+                        <li>Conduct vulnerability assessments and coordinate penetration testing activities</li>
+                        <li>Implement and maintain security controls and protocols across cloud and on-prem environments</li>
+                        <li>Perform OSINT investigations for threat intelligence and proactive defense</li>
+                        <li>Develop and maintain comprehensive security documentation and procedures</li>
+                        <li>Respond to and investigate security incidents following established playbooks</li>
+                        <li>Mentor junior analysts and contribute to team knowledge sharing</li>
+                    </ul>
+
+                    <h2><i class="fas fa-graduation-cap"></i> Required Qualifications</h2>
+                    <ul>
+                        <li>Bachelor's degree in Computer Science, Cybersecurity, or related field</li>
+                        <li>3+ years of experience in cybersecurity roles with focus on security operations</li>
+                        <li>One or more industry certifications: CEH, Security+, CySA+, GCIH, or equivalent</li>
+                        <li>Proficiency in Python, Bash, and common security tools</li>
+                        <li>Strong understanding of cloud security (AWS, Azure, GCP)</li>
+                        <li>Experience with SIEM solutions and security monitoring platforms</li>
+                        <li>Knowledge of network protocols, firewall configurations, and IDS/IPS systems</li>
+                    </ul>
+
+                    <h2><i class="fas fa-star"></i> Preferred Skills</h2>
+                    <ul>
+                        <li>Digital forensics and incident response experience</li>
+                        <li>Advanced OSINT and threat intelligence gathering techniques</li>
+                        <li>Knowledge of security frameworks (NIST, ISO 27001, CIS Controls)</li>
+                        <li>Experience with container security (Docker, Kubernetes)</li>
+                        <li>Scripting and automation skills for security orchestration</li>
+                        <li>Familiarity with threat hunting methodologies</li>
+                    </ul>
+
+                    <div class="attachments">
+                        <h3><i class="fas fa-paperclip"></i> Job Attachments</h3>
+                        <p>Download the complete job description for detailed information about compensation, benefits, and application process:</p>
+                        
+                        <a href="https://drive.google.com/drive/folders/1GJvK5tfNcOmKPZeITCi4Uu1dTXmMOMjf?usp=sharing" class="download-btn">
+                            <i class="fas fa-download"></i> Download Full Job Description (PDF)
+                        </a>
+                        
+                        <div class="file-info">
+                            <strong>File Details:</strong><br>
+                            • Filename: TechCorp_Senior_Security_Analyst_Job_Description.pdf<br>
+                            • Format: PDF Document<br>
+                            • Size: 248 KB<br>
+                            • Last updated: January 15, 2024<br>
+                            • Version: 2.1
+                        </div>
+                        
+                        <p><small><i class="fas fa-info-circle"></i> The document contains additional information about benefits, equity options, application process, and company policies.</small></p>
+                    </div>
+
+                    <div class="apply-section">
+                        <h3><i class="fas fa-paper-plane"></i> Ready to Apply?</h3>
+                        <p>Send your resume, cover letter, and any relevant certifications to:</p>
+                        <p style="font-size: 1.3em; font-weight: bold; margin: 15px 0;">careers@techcorp-solutions.io</p>
+                        <p>Please include "Senior Security Analyst Application - [Your Name]" in the subject line.</p>
+                        <p style="margin-top: 15px;"><small>We typically respond to all applications within 3-5 business days.</small></p>
+                    </div>
                 </div>
             </div>
 
+            <!-- SSBBTSBOT1QgSEVSRSAsIENIRUNLIGNhcmVmdWxseXw= -->
             <div class="sidebar">
-                <div class="company-info">
-                    <h3>About TechCorp Solutions</h3>
-                    <p>Founded in 2022, we're a cybersecurity startup dedicated to providing innovative security solutions for businesses of all sizes.</p>
-                    <p><strong>Our Mission:</strong> To make enterprise-grade security accessible to every organization.</p>
+                <div class="sidebar-card company-info">
+                    <h3><i class="fas fa-building"></i> About TechCorp</h3>
+                    <p>Founded in 2022, TechCorp Solutions is a cybersecurity startup dedicated to providing innovative security solutions for businesses of all sizes.</p>
+                    <p><strong>Our Mission:</strong> To make enterprise-grade security accessible and effective for every organization.</p>
+                    <p><strong>Industry Focus:</strong> Financial Services, Healthcare, Technology, Government</p>
                 </div>
 
-                <h3>Why Join Us?</h3>
-                <ul>
-                    <li>🚀 Fast-paced startup environment</li>
-                    <li>💻 Remote-first culture</li>
-                    <li>📚 Continuous learning opportunities</li>
-                    <li>🏥 Comprehensive health benefits</li>
-                    <li>⚡ Cutting-edge technology stack</li>
-                </ul>
+                <div class="sidebar-card">
+                    <h3><i class="fas fa-trophy"></i> Why Join Us?</h3>
+                    <ul class="benefits-list">
+                        <li><i class="fas fa-bolt"></i> Fast-paced startup environment</li>
+                        <li><i class="fas fa-laptop-house"></i> Remote-first culture</li>
+                        <li><i class="fas fa-graduation-cap"></i> Continuous learning opportunities</li>
+                        <li><i class="fas fa-heartbeat"></i> Comprehensive health benefits</li>
+                        <li><i class="fas fa-code"></i> Cutting-edge technology stack</li>
+                        <li><i class="fas fa-chart-line"></i> Clear career progression paths</li>
+                        <li><i class="fas fa-coins"></i> Competitive compensation + equity</li>
+                        <li><i class="fas fa-umbrella-beach"></i> Unlimited PTO policy</li>
+                    </ul>
+                </div>
 
-                <h3>Other Open Positions</h3>
-                <ul>
-                    <li>Junior Security Analyst</li>
-                    <li>DevSecOps Engineer</li>
-                    <li>Threat Intelligence Researcher</li>
-                    <li>Security Operations Lead</li>
-                </ul>
+                <div class="sidebar-card">
+                    <h3><i class="fas fa-briefcase"></i> Open Positions</h3>
+                    <div class="job-links">
+                        <a href="#" class="job-link active">
+                            <i class="fas fa-user-shield"></i>
+                            <div>
+                                <strong>Senior Security Analyst</strong>
+                                <div style="font-size: 0.85em; color: #8c8ca0;">Remote • Full-time</div>
+                            </div>
+                        </a>
+                        <a href="#" class="job-link">
+                            <i class="fas fa-user-graduate"></i>
+                            <div>
+                                <strong>Junior Security Analyst</strong>
+                                <div style="font-size: 0.85em; color: #8c8ca0;">Hybrid • Full-time</div>
+                            </div>
+                        </a>
+                        <a href="#" class="job-link">
+                            <i class="fas fa-code"></i>
+                            <div>
+                                <strong>DevSecOps Engineer</strong>
+                                <div style="font-size: 0.85em; color: #8c8ca0;">Remote • Full-time</div>
+                            </div>
+                        </a>
+                        <a href="#" class="job-link">
+                            <i class="fas fa-search"></i>
+                            <div>
+                                <strong>Threat Intelligence Researcher</strong>
+                                <div style="font-size: 0.85em; color: #8c8ca0;">Remote • Contract</div>
+                            </div>
+                        </a>
+                        <a href="#" class="job-link">
+                            <i class="fas fa-headset"></i>
+                            <div>
+                                <strong>Security Operations Lead</strong>
+                                <div style="font-size: 0.85em; color: #8c8ca0;">Remote • Full-time</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
 
-                <div style="background: #fff3cd; border: 1px solid #ffeaa7; border-radius: 8px; padding: 15px; margin-top: 20px;">
-                    <h4>🔒 Security Notice</h4>
-                    <p><small>All applications are handled with strict confidentiality. We conduct thorough background checks as part of our hiring process.</small></p>
+                <div class="sidebar-card notice">
+                    <h4><i class="fas fa-shield-alt"></i> Security Notice</h4>
+                    <p>All applications are handled with strict confidentiality. We conduct thorough background checks and security clearance verification as part of our hiring process for all positions.</p>
                 </div>
             </div>
-        </div>
-
-        <div class="footer">
-            <p>© 2024 TechCorp Solutions. All rights reserved. | Privacy Policy | Terms of Service</p>
-            <p>123 Cyber Drive, Security City, SC 12345 | contact@techcorp-solutions.io</p>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">TECHCORP SOLUTIONS</div>
+                    <p>Leading the future of cybersecurity with innovative solutions and expert services that protect your digital assets from evolving threats.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Solutions</h4>
+                    <div class="footer-links">
+                        <a href="#">Threat Intelligence</a>
+                        <a href="#">Vulnerability Management</a>
+                        <a href="#">Cloud Security</a>
+                        <a href="#">Incident Response</a>
+                        <a href="#">Security Assessments</a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Company</h4>
+                    <div class="footer-links">
+                        <a href="#">About Us</a>
+                        <a href="#">Leadership</a>
+                        <a href="#">Careers</a>
+                        <a href="#">Press</a>
+                        <a href="#">Contact</a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Resources</h4>
+                    <div class="footer-links">
+                        <a href="#">Blog</a>
+                        <a href="#">Whitepapers</a>
+                        <a href="#">Webinars</a>
+                        <a href="#">Documentation</a>
+                        <a href="#">Support</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 TechCorp Solutions. All rights reserved. | <a href="#" style="color: #8c8ca0;">Privacy Policy</a> | <a href="#" style="color: #8c8ca0;">Terms of Service</a> | <a href="#" style="color: #8c8ca0;">Security</a></p>
+                <p>123 Cyber Drive, Security City, SC 12345 | contact@techcorp-solutions.io | +1 (555) 123-4567</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
