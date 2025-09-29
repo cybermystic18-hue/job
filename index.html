@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers - TechCorp Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .nav {
+            background: #34495e;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 30px;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: #3498db;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .job-posting {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .sidebar {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 2.2em;
+        }
+
+        h2 {
+            color: #34495e;
+            margin: 25px 0 15px 0;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            color: #2c3e50;
+            margin: 20px 0 10px 0;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        ul {
+            margin: 15px 0;
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        .attachments {
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            margin: 10px 0;
+        }
+
+        .download-btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .file-info {
+            background: #e8f4fc;
+            border: 1px solid #b3d9f2;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        .apply-section {
+            background: #2ecc71;
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+
+        .company-info {
+            background: #ecf0f1;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav a {
+                display: block;
+                margin: 10px 0;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">TECHCORP SOLUTIONS</div>
+            <div class="tagline">Innovative Cybersecurity for the Modern Enterprise</div>
+        </div>
+
+        <div class="nav">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#careers" style="color: #3498db;">Careers</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <div class="main-content">
+            <div class="job-posting">
+                <h1>Senior Security Analyst</h1>
+                <p><strong>Location:</strong> Remote • <strong>Type:</strong> Full-time • <strong>Experience:</strong> 3+ years</p>
+                
+                <h2>About the Role</h2>
+                <p>We are seeking an experienced Security Analyst to join our dynamic team. In this role, you'll be at the forefront of our security operations, working with cutting-edge technologies to protect our clients and infrastructure.</p>
+
+                <h2>Key Responsibilities</h2>
+                <ul>
+                    <li>Monitor and analyze security events from various sources</li>
+                    <li>Conduct vulnerability assessments and penetration testing</li>
+                    <li>Implement and maintain security controls and protocols</li>
+                    <li>Perform OSINT investigations for threat intelligence</li>
+                    <li>Develop and maintain security documentation</li>
+                    <li>Respond to and investigate security incidents</li>
+                </ul>
+
+                <h2>Required Qualifications</h2>
+                <ul>
+                    <li>Bachelor's degree in Computer Science or related field</li>
+                    <li>3+ years of experience in cybersecurity roles</li>
+                    <li>One or more certifications: CEH, Security+, CySA+, or equivalent</li>
+                    <li>Proficiency in Python, Bash, and security tools</li>
+                    <li>Strong understanding of cloud security (AWS/Azure/GCP)</li>
+                    <li>Experience with SIEM solutions and security monitoring</li>
+                </ul>
+
+                <h2>Preferred Skills</h2>
+                <ul>
+                    <li>Digital forensics and incident response experience</li>
+                    <li>Advanced OSINT and threat intelligence gathering</li>
+                    <li>Knowledge of security frameworks (NIST, ISO 27001)</li>
+                    <li>Experience with container security</li>
+                    <li>Scripting and automation skills</li>
+                </ul>
+
+                <div class="attachments">
+                    <h3>📎 Job Attachments</h3>
+                    <p>Download the complete job description for detailed information:</p>
+                    
+                    <a href="https://drive.google.com/drive/folders/1GJvK5tfNcOmKPZeITCi4Uu1dTXmMOMjf?usp=sharing" class="download-btn">
+                        📥 Download Full Job Description
+                    </a>
+                    
+                    <div class="file-info">
+                        <strong>File Details:</strong><br>
+                        • Filename: detailed_position_specs.pdf<br>
+                        • Format: PDF Document<br>
+                        • Size: 248 KB<br>
+                        • Last updated: 2024-01-15
+                    </div>
+                    
+                    <p><small>Note: The file contains additional information about benefits, application process, and company policies.</small></p>
+                </div>
+
+                <div class="apply-section">
+                    <h3>Ready to Apply?</h3>
+                    <p>Send your resume and cover letter to:</p>
+                    <p style="font-size: 1.2em; font-weight: bold;">careers@techcorp-solutions.io</p>
+                    <p>Please include "Senior Security Analyst Application" in the subject line.</p>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <div class="company-info">
+                    <h3>About TechCorp Solutions</h3>
+                    <p>Founded in 2022, we're a cybersecurity startup dedicated to providing innovative security solutions for businesses of all sizes.</p>
+                    <p><strong>Our Mission:</strong> To make enterprise-grade security accessible to every organization.</p>
+                </div>
+
+                <h3>Why Join Us?</h3>
+                <ul>
+                    <li>🚀 Fast-paced startup environment</li>
+                    <li>💻 Remote-first culture</li>
+                    <li>📚 Continuous learning opportunities</li>
+                    <li>🏥 Comprehensive health benefits</li>
+                    <li>⚡ Cutting-edge technology stack</li>
+                </ul>
+
+                <h3>Other Open Positions</h3>
+                <ul>
+                    <li>Junior Security Analyst</li>
+                    <li>DevSecOps Engineer</li>
+                    <li>Threat Intelligence Researcher</li>
+                    <li>Security Operations Lead</li>
+                </ul>
+
+                <div style="background: #fff3cd; border: 1px solid #ffeaa7; border-radius: 8px; padding: 15px; margin-top: 20px;">
+                    <h4>🔒 Security Notice</h4>
+                    <p><small>All applications are handled with strict confidentiality. We conduct thorough background checks as part of our hiring process.</small></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2024 TechCorp Solutions. All rights reserved. | Privacy Policy | Terms of Service</p>
+            <p>123 Cyber Drive, Security City, SC 12345 | contact@techcorp-solutions.io</p>
+        </div>
+    </div>
+</body>
+</html>
